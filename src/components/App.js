@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading'
 
 import Nav from './Nav'
+import Login from './Login'
 import { handleInitialData } from '../actions/shared'
 
 import './App.css';
@@ -18,9 +19,23 @@ class App extends React.Component {
       <React.Fragment>
         <Nav />
         <LoadingBar />
+
+        {this.props.loading === false && (
+          this.props.authedUser === null
+            ? <Login />
+            : <div></div>
+        )}
+
       </React.Fragment>
     )
   }
 }
 
-export default connect()(App)
+function mapStateToProps({ loading, authedUser }) {
+  return {
+    loading,
+    authedUser,
+  }
+}
+
+export default connect(mapStateToProps)(App)

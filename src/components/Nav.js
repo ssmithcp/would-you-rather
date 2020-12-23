@@ -1,27 +1,47 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { clearAuthedUser } from '../actions/authedUser'
 
 import './Nav.scss'
 
-function Nav(props) {
-  const { authedUser } = props;
+class Nav extends React.Component {
+  logout() {
+    this.props.dispatch(clearAuthedUser())
+  }
 
-  return (
-    <div className='nav-bar'>
-      <ul className='container'>
-        <li>Home</li>
-        <li>New Question</li>
-        <li>Leader Board</li>
+  render() {
+    const user = this.props.authedUser && this.props.users[this.props.authedUser];
 
-        { authedUser && (
-        <React.Fragment>
-        <li>Hello, { authedUser.name }</li>
-        <li><img src={ authedUser.avatarURL } alt='avatar' /></li>
-        <li>Logout</li>
-        </React.Fragment>
-        )}
-      </ul>
-    </div>
-  )
+    return (
+      <div className='nav-bar-separator'>
+        <div className='container nav-bar'>
+          <ul className='links'>
+            <li>Home</li>
+            <li>New Question</li>
+            <li>Leader Board</li>
+          </ul>
+
+          <div className='profile'>
+            { user && (
+              <React.Fragment>
+                <p>Hello, { user.name }</p>
+                <img src={ user.avatarURL } alt='avatar' />
+                <button onClick={ () => this.logout() }>Logout</button>
+              </React.Fragment>
+            )}
+          </div>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default Nav;
+function mapStateToProps({ authedUser, users }) {
+  return {
+    authedUser,
+    users,
+  }
+}
+
+export default connect(mapStateToProps)(Nav);

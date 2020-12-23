@@ -1,6 +1,8 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 import { getInitialData } from '../utils/api'
+
+import { loadingFinished } from './loading'
 import { receiveUsers } from './users'
 
 export function handleInitialData() {
@@ -12,6 +14,7 @@ export function handleInitialData() {
         dispatch(receiveUsers(users))
 
         dispatch(hideLoading())
+        dispatch(loadingFinished())
       })
   }
 }

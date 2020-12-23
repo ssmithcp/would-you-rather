@@ -1,16 +1,54 @@
-.nav-bar {
+@import '../utilities.scss';
+
+.nav-bar-separator {
   border-bottom: .2rem black solid;
 }
 
-ul {
-  list-style: none;
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  li {
-    display: inline-block;
-    padding: 1rem;
+  ul.links {
+    list-style: none;
 
-    &:hover {
-      background: lightgray;
+    li {
+      display: inline-block;
+      padding: 1rem;
+
+      &:hover {
+        background: $hover-background;
+      }
+    }
+  }
+
+  div.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p {
+      display: inline;
+    }
+
+    img {
+      height: 3rem;
+      width: 3rem;
+
+      margin: 0rem 1rem;
+    }
+
+    button {
+      background-color: white;
+      padding: .5rem;
+      font-size: 1rem;
+      border: 1px solid black;
+      border-radius: 6px;
+
+      &:hover {
+        background: $hover-background;
+      }
     }
   }
 }
+

@@ -6,3 +6,7 @@ export function setAuthedUser(id) {
     id,
   }
 }
+
+export function clearAuthedUser() {
+  return setAuthedUser(null)
+}
