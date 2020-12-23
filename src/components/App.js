@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+import LoadingBar from 'react-redux-loading'
+
 import Nav from './Nav'
 import { handleInitialData } from '../actions/shared'
 
@@ -15,6 +17,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Nav />
+        <LoadingBar />
       </React.Fragment>
     )
   }
