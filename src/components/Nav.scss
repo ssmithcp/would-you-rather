@@ -1,0 +1,16 @@
+.nav-bar {
+  border-bottom: .2rem black solid;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    display: inline-block;
+    padding: 1rem;
+
+    &:hover {
+      background: lightgray;
+    }
+  }
+}
