@@ -6,11 +6,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Nav from './Nav'
 import Login from './Login'
-import QuestionsList from './QuestionsList'
+import QuestionsContainer from './QuestionsContainer'
 
 import { handleInitialData } from '../actions/shared'
 
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,14 +23,15 @@ class App extends React.Component {
         <Nav />
         <LoadingBar />
 
-        {this.props.loading === false && (
-          this.props.authedUser === null
-            ? <Login />
-            : (<>
-                <Route path='/' exact component={ QuestionsList } />
-               </>)
-        )}
-
+        <div className='container my-1'>
+          {this.props.loading === false && (
+            this.props.authedUser === null
+              ? <Login />
+              : (<>
+                  <Route path='/' exact component={ QuestionsContainer } />
+                </>)
+          )}
+        </div>
       </Router>
     )
   }

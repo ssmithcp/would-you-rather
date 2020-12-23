@@ -6,12 +6,12 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends React.Component {
   doLogin(userId) {
-    this.props.dispatch(setAuthedUser(userId))
+    this.props.dispatch(setAuthedUser(this.props.users[userId]))
   }
 
   render() {
     return (
-      <div className='container my-1'>
+      <>
         <h2>Choose login user</h2>
         <select name='user' className='my-1' onChange= { e => this.doLogin(e.target.value) }>
           <option value=''></option>
@@ -24,7 +24,7 @@ class Login extends React.Component {
             </option>
           ))}
         </select>
-      </div>
+      </>
     )
   }
 }

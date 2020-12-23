@@ -12,28 +12,30 @@ class Nav extends React.Component {
   }
 
   render() {
-    const user = this.props.authedUser && this.props.users[this.props.authedUser];
+    const user = this.props.authedUser;
 
     return (
       <div className='nav-bar-separator'>
         <div className='container nav-bar'>
-          <ul className='links'>
-            <li>
-              <NavLink to='/' exact activeClassName='current'>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/add' activeClassName='current'>
-                New Question
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/leaderboard' activeClassName='current'>
-                Leader Board
-              </NavLink>
-            </li>
-          </ul>
+          <nav>
+            <ul className='links'>
+              <li>
+                <NavLink to='/' exact activeClassName='current'>
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/add' activeClassName='current'>
+                  New Question
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to='/leaderboard' activeClassName='current'>
+                  Leader Board
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
 
           <div className='profile'>
             { user && (
