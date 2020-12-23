@@ -1,4 +1,4 @@
-@import '../utilities.scss';
+@import '../utilities';
 
 .nav-bar-separator {
   border-bottom: .2rem black solid;
@@ -16,6 +16,16 @@
       display: inline-block;
       padding: 1rem;
 
+      a {
+        text-decoration: none;
+        color: black;
+        padding: 5px;
+      }
+
+      a.current {
+        border-bottom: 3px solid darkorange;
+      }
+
       &:hover {
         background: $hover-background;
       }
@@ -29,13 +39,6 @@
 
     p {
       display: inline;
-    }
-
-    img {
-      height: 3rem;
-      width: 3rem;
-
-      margin: 0rem 1rem;
     }
 
     button {

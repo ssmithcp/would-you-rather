@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { clearAuthedUser } from '../actions/authedUser'
@@ -17,18 +18,30 @@ class Nav extends React.Component {
       <div className='nav-bar-separator'>
         <div className='container nav-bar'>
           <ul className='links'>
-            <li>Home</li>
-            <li>New Question</li>
-            <li>Leader Board</li>
+            <li>
+              <NavLink to='/' exact activeClassName='current'>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/add' activeClassName='current'>
+                New Question
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to='/leaderboard' activeClassName='current'>
+                Leader Board
+              </NavLink>
+            </li>
           </ul>
 
           <div className='profile'>
             { user && (
-              <React.Fragment>
+              <>
                 <p>Hello, { user.name }</p>
-                <img src={ user.avatarURL } alt='avatar' />
+                <img className='avatar' src={ user.avatarURL } alt='avatar' />
                 <button onClick={ () => this.logout() }>Logout</button>
-              </React.Fragment>
+              </>
             )}
           </div>
         </div>
