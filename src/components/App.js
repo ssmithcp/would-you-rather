@@ -20,8 +20,8 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Nav />
         <LoadingBar />
+        <Nav />
 
         <div className='container my-1'>
           {this.props.loading === false && (

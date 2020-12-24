@@ -42,18 +42,6 @@
       display: inline;
       margin: 0;
     }
-
-    button {
-      background-color: white;
-      padding: .5rem;
-      font-size: 1rem;
-      border: 1px solid black;
-      border-radius: 6px;
-
-      &:hover {
-        background: $hover-background;
-      }
-    }
   }
 }
 

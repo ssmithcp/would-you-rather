@@ -1,14 +1,14 @@
 import React from 'react'
 
+import Question from './Question'
+
 function QuestionsList({ questions }) {
   return (
-    <ol>
+    <>
       {questions.map(q => (
-        <li key={ q.id }>
-          { q.id }
-        </li>
+          <Question key={ q.id } id={ q.id } />
       ))}
-    </ol>
+    </>
   )
 }
 

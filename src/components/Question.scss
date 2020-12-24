@@ -1,0 +1,18 @@
+.question-card {
+  border: solid 1px darkgrey;
+  border-radius: 1rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  margin: 2rem;
+
+  .answered {
+    font-size: 1.3rem;
+    color: green;
+    margin-right: 1rem;
+  }
+
+  .asked-by {
+    margin-top: 1rem;
+    margin-block-end: .5rem;
+    color: grey;
+  }
+}

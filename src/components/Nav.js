@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { clearAuthedUser } from '../actions/authedUser'
 
+import Button from 'react-bootstrap/Button';
 import './Nav.scss'
 
 class Nav extends React.Component {
@@ -42,7 +43,7 @@ class Nav extends React.Component {
               <>
                 <p>Hello, { user.name }</p>
                 <img className='avatar' src={ user.avatarURL } alt='avatar' />
-                <button onClick={ () => this.logout() }>Logout</button>
+                <Button variant="outline-dark" onClick={ () => this.logout() }>Logout</Button>
               </>
             )}
           </div>

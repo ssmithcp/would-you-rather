@@ -26,8 +26,8 @@ function mapStateToProps({ authedUser, questions }) {
 
   return {
     authedUser,
-    unansweredQuestions: Object.values(questions).filter(q => answeredQuestions.includes(q.id)),
-    answeredQuestions: Object.values(questions).filter(q => !answeredQuestions.includes(q.id)),
+    unansweredQuestions: Object.values(questions).filter(q => !answeredQuestions.includes(q.id)),
+    answeredQuestions: Object.values(questions).filter(q => answeredQuestions.includes(q.id)),
   }
 }
 
