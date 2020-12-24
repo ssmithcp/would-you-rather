@@ -1,5 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { getChosenOption } from '../utils/helpers'
 
 import { FaCheck } from 'react-icons/fa'
 import Button from 'react-bootstrap/Button';
@@ -9,11 +12,7 @@ function QuestionOverview({ id, authedUser, questions, users }) {
   const question = questions[id]
   const askedBy = users[question.author]
 
-  const chosenOption = question.optionOne.votes.includes(authedUser.id)
-    ? question.optionOne
-    : question.optionTwo.votes.includes(authedUser.id)
-        ? question.optionTwo
-        : null
+  const chosenOption = getChosenOption(authedUser, question)
 
   const maybeAddCheck = (currentOption) =>
     currentOption === chosenOption
@@ -32,13 +31,11 @@ function QuestionOverview({ id, authedUser, questions, users }) {
         { maybeAddCheck(question.optionTwo) }
         { question.optionTwo.text }
       </p>
-      <Button
-        variant='primary'
-        href={'/questions/' + id}>
-          {chosenOption === null
-            ? 'Vote!'
-            : 'View results'}
-      </Button>
+      <Link to={'/questions/' + id}>
+        <Button variant='primary'>
+          {chosenOption === null ? 'Vote!' : 'View results'}
+        </Button>
+      </Link>
       <p className='asked-by'>Asked by: { askedBy.name }</p>
     </div>
   )
