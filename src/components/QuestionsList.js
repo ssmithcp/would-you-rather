@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Question from './Question'
+import QuestionOverview from './QuestionOverview'
 
 function QuestionsList({ questions }) {
   return (
     <>
       {questions.map(q => (
-          <Question key={ q.id } id={ q.id } />
+          <QuestionOverview key={ q.id } id={ q.id } />
       ))}
     </>
   )
