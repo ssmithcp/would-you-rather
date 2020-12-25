@@ -8,5 +8,8 @@ export function setAuthedUser(user) {
 }
 
 export function clearAuthedUser() {
-  return setAuthedUser(null)
+  return dispatch => {
+    dispatch(setAuthedUser(null))
+    return Promise.resolve()
+  }
 }
