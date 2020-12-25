@@ -22,17 +22,17 @@ function Nav({ authedUser, dispatch }) {
           <ul className='links'>
             <li>
               <NavLink to='/' exact activeClassName='current'>
-                Home
+                <div>Home</div>
               </NavLink>
             </li>
             <li>
               <NavLink to='/add' activeClassName='current'>
-                New Question
+              <div>New Question</div>
               </NavLink>
             </li>
             <li>
               <NavLink to='/leaderboard' activeClassName='current'>
-                Leader Board
+              <div>Leader Board</div>
               </NavLink>
             </li>
           </ul>

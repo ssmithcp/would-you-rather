@@ -26,22 +26,24 @@ class AnswerQuestion extends React.Component {
         <h3>Would you rather ...</h3>
         <p>
           <input
+            id='option-one'
             type='radio'
             value={ 'optionOne' }
             onChange={ e => this.selectedChanged(e) }
             name='answer'
           />
-          { question.optionOne.text }
+          <label htmlFor='option-one'>{ question.optionOne.text }</label>
         </p>
         <p>OR</p>
         <p>
          <input
+            id='option-two'
             type='radio'
             value={ 'optionTwo' }
             onChange={ e => this.selectedChanged(e) }
             name='answer'
           />
-          { question.optionTwo.text }
+          <label htmlFor='option-two'>{ question.optionTwo.text }</label>
         </p>
         <Button
           variant="outline-dark"
