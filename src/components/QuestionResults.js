@@ -39,9 +39,9 @@ function summaryLine(option, addCheck, count, total) {
   )
 }
 
-function mapStateToProps({ authedUser, questions, users }) {
+function mapStateToProps({ authedUserId, questions, users }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
     questions,
     users,
   }

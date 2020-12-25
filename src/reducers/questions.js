@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS, ANSWER_QUESTION } from '../actions/questions'
+import { RECEIVE_QUESTIONS, ANSWER_QUESTION, NEW_QUESTION } from '../actions/questions'
 
 export default function questions(state = {}, action) {
   switch (action.type) {
@@ -22,6 +22,23 @@ export default function questions(state = {}, action) {
     return {
       ...state,
       [action.qid]: updatedQuestion,
+    }
+  case NEW_QUESTION:
+    return {
+      ...state,
+      [action.qid]: {
+        author: action.uid,
+        id: action.qid,
+        optionOne: {
+          votes: [],
+          text: action.optionOne,
+        },
+        optionTwo: {
+          votes: [],
+          text: action.optionTwo
+        },
+        timestamp: Date.now()
+      }
     }
   default:
     return state

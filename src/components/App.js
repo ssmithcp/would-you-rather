@@ -44,10 +44,10 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps({ loading, authedUser }) {
+function mapStateToProps({ loading, authedUserId, users }) {
   return {
     loading,
-    authedUser,
+    authedUser: users[authedUserId] || null,
   }
 }
 

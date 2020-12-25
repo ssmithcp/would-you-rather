@@ -8,11 +8,11 @@ import './AnswerQuestion.scss'
 
 class AnswerQuestion extends React.Component {
   state = {
-    selectedAnswer: null,
+    selectedOption: null,
   }
   selectedChanged(e) {
     this.setState({
-      selectedAnswer: e.target.value,
+      selectedOption: e.target.value,
     })
   }
   render() {
@@ -42,11 +42,11 @@ class AnswerQuestion extends React.Component {
         </p>
         <Button
           variant="outline-dark"
-          disabled={ this.state.selectedAnswer === null }
+          disabled={ this.state.selectedOption === null }
           onClick={ () => dispatch(answerQuestion(
             question.id,
             authedUser.id,
-            this.state.selectedAnswer
+            this.state.selectedOption
           )) }
         >
           Submit
@@ -56,9 +56,9 @@ class AnswerQuestion extends React.Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions, users }, { id }) {
+function mapStateToProps({ authedUserId, questions, users }, { id }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
     question: questions[id],
     askedBy: users[questions[id].author].name,
   }

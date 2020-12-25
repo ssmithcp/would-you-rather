@@ -7,7 +7,7 @@ import AnswerQuestion from './AnswerQuestion'
 import QuestionResults from './QuestionResults'
 
 function FocusedQuestion({ authedUser, question }) {
-  const chosen = question && getChosenOption(authedUser, question);
+  const chosen = question && getChosenOption(authedUser, question)
 
   return (
     <>
@@ -21,9 +21,9 @@ function FocusedQuestion({ authedUser, question }) {
   )
 }
 
-function mapStateToProps({ authedUser, questions }, { match: { params: { id } } }) {
+function mapStateToProps({ authedUserId, users, questions }, { match: { params: { id } } }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
     question: questions[id],
   }
 }

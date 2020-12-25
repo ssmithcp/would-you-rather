@@ -45,9 +45,9 @@ function CreateQuestion({ authedUser, dispatch }) {
   )
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUserId, users }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
   }
 }
 

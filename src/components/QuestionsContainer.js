@@ -21,7 +21,8 @@ class QuestionsContainer extends React.Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }) {
+function mapStateToProps({ authedUserId, users, questions }) {
+  const authedUser = users[authedUserId] || null
   const answeredQuestions = authedUser !== null ? Object.keys(authedUser.answers) : []
 
   return {

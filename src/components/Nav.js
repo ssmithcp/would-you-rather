@@ -52,9 +52,9 @@ function Nav({ authedUser, dispatch }) {
   )
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUserId, users }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
     users,
   }
 }

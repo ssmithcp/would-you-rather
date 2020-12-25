@@ -6,7 +6,7 @@ import { setAuthedUser } from '../actions/authedUser'
 
 class Login extends React.Component {
   doLogin(userId) {
-    this.props.dispatch(setAuthedUser(this.props.users[userId]))
+    this.props.dispatch(setAuthedUser(userId))
   }
 
   render() {

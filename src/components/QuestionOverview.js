@@ -41,9 +41,9 @@ function QuestionOverview({ id, authedUser, questions, users }) {
   )
 }
 
-function mapStateToProps({ authedUser, questions, users }) {
+function mapStateToProps({ authedUserId, questions, users }) {
   return {
-    authedUser,
+    authedUser: users[authedUserId] || null,
     questions,
     users,
   }

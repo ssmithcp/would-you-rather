@@ -34,13 +34,14 @@ export function newQuestion(uid, optionOne, optionTwo) {
       optionOneText: optionOne,
       optionTwoText: optionTwo,
       author: uid
-    }).then(() => {
+    }).then(newQuestion =>
       dispatch({
         type: NEW_QUESTION,
         uid,
+        qid: newQuestion.id,
         optionOne,
-        optionTwo
+        optionTwo,
       })
-    })
+    )
   }
 }
