@@ -1,11 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function LeaderBoard() {
+import RankingEntry from './RankingEntry'
+
+function LeaderBoard({ users }) {
   return (
     <>
-      <p>Leader Board</p>
+      <h2>Leader Board</h2>
+      { users.map(user =>
+        <RankingEntry key={ user.id } user={ user }
+      />) }
     </>
   )
 }
 
-export default LeaderBoard
+function mapStateToProps({ users }) {
+  const count = (user) => Object.keys(user.answers).length + user.questions.length
+
+  return {
+    users: Object.values(users).sort((a, b) => count(b) - count(a))
+  }
+}
+
+export default connect(mapStateToProps)(LeaderBoard)
