@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import AskedBy from './AskedBy'
+
 import { getChosenOption } from '../utils/helpers'
 
 import { FaCheck } from 'react-icons/fa'
@@ -10,8 +12,6 @@ import './QuestionOverview.scss'
 
 function QuestionOverview({ id, authedUser, questions, users }) {
   const question = questions[id]
-  const askedBy = users[question.author]
-
   const chosenOption = getChosenOption(authedUser, question)
 
   const maybeAddCheck = (currentOption) =>
@@ -36,7 +36,7 @@ function QuestionOverview({ id, authedUser, questions, users }) {
           {chosenOption === null ? 'Vote!' : 'View results'}
         </Button>
       </Link>
-      <p className='asked-by'>Asked by: { askedBy.name }</p>
+      <AskedBy userId={ question.author } />
     </div>
   )
 }

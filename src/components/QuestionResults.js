@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 
 import { getChosenOption } from '../utils/helpers'
 
+import AskedBy from './AskedBy'
+
 import { FaCheck } from 'react-icons/fa'
 import './QuestionOverview.scss'
 
 function QuestionResults({ id, authedUser, questions, users }) {
   const question = questions[id]
-  const askedBy = users[question.author]
   const chosenOption = getChosenOption(authedUser, question)
   const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
 
@@ -19,7 +20,7 @@ function QuestionResults({ id, authedUser, questions, users }) {
       { summaryLine(question.optionOne, question.optionOne === chosenOption, question.optionOne.votes.length, totalVotes) }
       <p>OR</p>
       { summaryLine(question.optionTwo, question.optionTwo === chosenOption, question.optionTwo.votes.length, totalVotes) }
-      <p className='asked-by'>Asked by: { askedBy.name }</p>
+      <AskedBy userId={ question.author } />
     </div>
   )
 }

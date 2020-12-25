@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { answerQuestion } from '../actions/questions'
 
 import Button from 'react-bootstrap/Button';
+
+import AskedBy from './AskedBy'
 import './AnswerQuestion.scss'
 
 class AnswerQuestion extends React.Component {
@@ -17,9 +19,10 @@ class AnswerQuestion extends React.Component {
   }
   render() {
     const { authedUser, question, askedBy, dispatch } = this.props
+
     return (
       <form className='answer-question-form'>
-        <p>Asked by: { askedBy }</p>
+        <AskedBy userId={ askedBy } />
         <h3>Would you rather ...</h3>
         <p>
           <input
@@ -60,7 +63,7 @@ function mapStateToProps({ authedUserId, questions, users }, { id }) {
   return {
     authedUser: users[authedUserId] || null,
     question: questions[id],
-    askedBy: users[questions[id].author].name,
+    askedBy: questions[id].author,
   }
 }
 

@@ -27,8 +27,12 @@ function mapStateToProps({ authedUserId, users, questions }) {
 
   return {
     authedUser,
-    unansweredQuestions: Object.values(questions).filter(q => !answeredQuestions.includes(q.id)),
-    answeredQuestions: Object.values(questions).filter(q => answeredQuestions.includes(q.id)),
+    unansweredQuestions: Object.values(questions)
+                          .filter(q => !answeredQuestions.includes(q.id))
+                          .sort((a, b) => b.timestamp - a.timestamp),
+    answeredQuestions: Object.values(questions)
+                          .filter(q => answeredQuestions.includes(q.id))
+                          .sort((a, b) => b.timestamp - a.timestamp),
   }
 }
 
