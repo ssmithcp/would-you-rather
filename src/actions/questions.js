@@ -1,7 +1,8 @@
-import { saveQuestionAnswer } from '../utils/api'
+import { saveQuestionAnswer, saveQuestion } from '../utils/api'
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
+export const NEW_QUESTION = 'NEW_QUESTION'
 
 export function receiveQuestions(questions) {
   return {
@@ -11,7 +12,7 @@ export function receiveQuestions(questions) {
 }
 
 export function answerQuestion(qid, uid, selection) {
-  return (dispatch) => {
+  return dispatch => {
     saveQuestionAnswer({
       authedUser: uid,
       qid,
@@ -24,5 +25,22 @@ export function answerQuestion(qid, uid, selection) {
         selection,
       }
     ))
+  }
+}
+
+export function newQuestion(uid, optionOne, optionTwo) {
+  return dispatch => {
+    return saveQuestion({
+      optionOneText: optionOne,
+      optionTwoText: optionTwo,
+      author: uid
+    }).then(() => {
+      dispatch({
+        type: NEW_QUESTION,
+        uid,
+        optionOne,
+        optionTwo
+      })
+    })
   }
 }

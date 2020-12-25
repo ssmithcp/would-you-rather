@@ -13,7 +13,7 @@ class Login extends React.Component {
     return (
       <>
         <h2>Choose login user</h2>
-        <select name='user' className='my-1' onChange= { e => this.doLogin(e.target.value) }>
+        <select name='user' className='my-2' onChange= { e => this.doLogin(e.target.value) }>
           <option value=''></option>
           {Object.values(this.props.users).map(user => (
             <option

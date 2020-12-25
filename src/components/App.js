@@ -9,7 +9,7 @@ import Login from './Login'
 
 import QuestionsContainer from './QuestionsContainer'
 import FocusedQuestion from './FocusedQuestion'
-import AddQuestion from './AddQuestion'
+import CreateQuestion from './CreateQuestion'
 import LeaderBoard from './LeaderBoard'
 
 import { handleInitialData } from '../actions/shared'
@@ -27,14 +27,14 @@ class App extends React.Component {
         <LoadingBar />
         <Nav />
 
-        <div className='container my-1'>
+        <div className='container my-4'>
           {this.props.loading === false && (
             this.props.authedUser === null
               ? <Login />
               : (<>
                   <Route path='/' exact component={ QuestionsContainer } />
                   <Route path='/questions/:id' component={ FocusedQuestion } />
-                  <Route path='/add' component={ AddQuestion } />
+                  <Route path='/add' component={ CreateQuestion } />
                   <Route path='/leaderboard' component={ LeaderBoard } />
                 </>)
           )}
