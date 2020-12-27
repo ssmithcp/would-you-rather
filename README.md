@@ -1,103 +1,57 @@
-# Before you start
-Node 14.XX is required to run this project.
+# Install & Run
+Once you have a clone of this repository, install the necessary dependencies by running `npm install` and run it locally with `npm start`
 
-# Would You Rather Project
+Note: Node 14.XX is required to run this project.
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+# Would You Rather?
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+## Preface
+This is a project I completed for udacity.com's 'React nano degree' program. The mock database, the `src/utils/_DATA.js` file, and the idea for this project was provided by udacity.com and I did the rest!
 
-## Data
+## Note on quality
+If any potential employers are looking at this project: please note that I completed this project to the minimal quality standard. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
 
-There are two types of objects stored in our database:
+Some areas that could be improved
+ * Everything UI
+ * Make pages responsive
 
-* Users
-* Questions
+## Would you rather? - A game outline
+This is a simple 'poll' game where you can ask whether you prefer `option A` or `option b`. For example: Would you rather `Eat a whole pizza` or `Eat a whole pie`?
 
-### Users
+## Login functionality
+Since there is no real back-end for this application, the login process is simply choosing which user you want to be from the drop-down menu.
 
-Users include:
+![login page](doc-images/login-page.png)
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+## The pages
+### Home
+On the home page there is a tabbed view of all unanswered and answered questions.
 
-### Questions
+![home page](doc-images/home-page.png)
 
-Questions include:
+You can click 'Vote!' on unanswered questions to select your preference and click 'View results' on answered questions to see how that user voted and statistics on how others voted.
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
+### New Question
+Here you can add a new question.
 
-### Voting Options
+![new question page](doc-images/new-question-page.png)
 
-Voting options are attached to questions. They include:
+### Leader Board
+Here you can see which users are most active - who has asked and answered the most questions
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
+![leader board page](doc-images/leader-board-page.png)
 
-Your code will talk to the database via 4 methods:
+## There is more!
+Please checkout the rest of the functionality by cloning and running the app locally!
 
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
+## Technical stuff
 
-1) `_getUsers()` Method
+### Implementation
+This is a 'built from scratch' React.js SPA (single page application) that uses react, react router, redux, react bootstrap in some places and some basic scss.
 
-*Description*: Get all of the existing users from the database.
-*Return Value*: Object where the key is the user’s id and the value is the user object.
+### Folder structure
+The source code is organized in a 'rails-like' pattern. Actions, components middleware and reducers each have their own folders. My preference for organizing the files this way helps prevent a react anti-pattern where the UI is tightly coupled with the action/reducer implementation. Having the different aspects of the program handled in their own folder promotes decoupling.
 
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database.
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
-## Contributing
-
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+### Areas to improve
+As of writing this, I know I don't totally understand how promises and callback handling works after dispatching a state change. Also, this course doesn't talk about react hooks at all. I use a couple hooks in the app but don't know a lot about them. I'm looking forward to researching these topics soon!
