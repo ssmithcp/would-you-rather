@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import LoadingBar from 'react-redux-loading'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Nav from './Nav'
 import Login from './Login'
@@ -11,6 +11,7 @@ import QuestionsContainer from './QuestionsContainer'
 import FocusedQuestion from './FocusedQuestion'
 import CreateQuestion from './CreateQuestion'
 import LeaderBoard from './LeaderBoard'
+import NotFoundPage from './NotFoundPage'
 
 import { handleInitialData } from '../actions/shared'
 
@@ -31,12 +32,13 @@ class App extends React.Component {
           {this.props.loading === false && (
             this.props.authedUser === null
               ? <Login />
-              : (<>
+              : (<Switch>
                   <Route path='/' exact component={ QuestionsContainer } />
                   <Route path='/questions/:id' component={ FocusedQuestion } />
                   <Route path='/add' component={ CreateQuestion } />
                   <Route path='/leaderboard' component={ LeaderBoard } />
-                </>)
+                  <Route component={ NotFoundPage } />
+                </Switch>)
           )}
         </div>
       </Router>
