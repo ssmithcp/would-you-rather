@@ -6,7 +6,7 @@ Note: Node 14.XX is required to run this project.
 # Would You Rather?
 
 ## Preface
-This is a project I completed for udacity.com's 'React nano degree' program. The mock database, the `src/utils/_DATA.js` file, and the idea for this project was provided by udacity.com and I did the rest!
+This is a project I completed for udacity.com's '[React nano degree](https://d20vrrgs8k4bvw.cloudfront.net/documents/en-US/reactnd-syllabus-3.0.pdf)' program. The mock database, the `src/utils/_DATA.js` file, and the idea for this project was provided by udacity.com and I did the rest!
 
 ## Note on quality
 If any potential employers are looking at this project: please note that I completed this project to the minimal quality standard. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
