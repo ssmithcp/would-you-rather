@@ -3,7 +3,6 @@ Once you have a clone of this repository, install the necessary dependencies by 
 
 Note: Node 14.XX is required to run this project.
 
-
 # Would You Rather?
 
 ## Preface
@@ -12,7 +11,10 @@ This is a project I completed for udacity.com's 'React nano degree' program. The
 ## Note on quality
 If any potential employers are looking at this project: please note that I completed this project to the minimal quality standard. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
 
-Some areas that could be improved
+ ## Areas to improve
+As of writing this, I know I don't totally understand how promises and callback handling works after dispatching a state change. Also, this course doesn't talk about react hooks at all. I use a couple hooks in the app but don't know a lot about them. I'm looking forward to researching these topics soon!
+
+Aspects that I could have made better but didn't
  * Everything UI
  * Make pages responsive
 
@@ -52,6 +54,3 @@ This is a 'built from scratch' React.js SPA (single page application) that uses 
 
 ### Folder structure
 The source code is organized in a 'rails-like' pattern. Actions, components middleware and reducers each have their own folders. My preference for organizing the files this way helps prevent a react anti-pattern where the UI is tightly coupled with the action/reducer implementation. Having the different aspects of the program handled in their own folder promotes decoupling.
-
-### Areas to improve
-As of writing this, I know I don't totally understand how promises and callback handling works after dispatching a state change. Also, this course doesn't talk about react hooks at all. I use a couple hooks in the app but don't know a lot about them. I'm looking forward to researching these topics soon!
