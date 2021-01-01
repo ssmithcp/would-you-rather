@@ -9,7 +9,7 @@ Note: Node 14.XX is required to run this project.
 This is a project I completed for udacity.com's '[React nano degree](https://d20vrrgs8k4bvw.cloudfront.net/documents/en-US/reactnd-syllabus-3.0.pdf)' program. The mock database, the `src/utils/_DATA.js` file, and the idea for this project was provided by udacity.com and I did the rest!
 
 ## Note on quality
-If any potential employers are looking at this project: please note that I completed this project to the minimal quality standard. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
+If any potential employers are looking at this project: please note that this isn't a production ready app. I learned what I wanted to learn making this project and didn't spend more time on it than I needed - that leaves more time for other projects!
 
  ## Areas to improve
 As of writing this, I know I don't totally understand how promises and callback handling works after dispatching a state change. Also, this course doesn't talk about react hooks at all. I use a couple hooks in the app but don't know a lot about them. I'm looking forward to researching these topics soon!
